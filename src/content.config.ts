@@ -8,10 +8,12 @@ const articles = defineCollection({
 	// Type-check frontmatter using a schema
 	schema: z.object({
 		title: z.string(),
+		slug: z.string(),
 		description: z.string(),
 		published: z.string(),
 		apps: z.array(z.string()),
-		url: z.string()
+		url: z.string(),
+		imageUrl: z.string()
 	})
 });
 

@@ -14,7 +14,11 @@ const {project} = Astro.props
 ---
 
 <Card class="relative mx-auto w-full max-w-sm">
-    <slot />
+    <img
+        src={project.data.imageUrl}
+        alt={project.data.title}
+        class="h-48 w-full object-cover rounded-t-md"
+    />
 
     <CardHeader>
         <CardAction>
@@ -33,6 +37,6 @@ const {project} = Astro.props
     </CardHeader>
 
     <CardFooter>
-        <Button class="w-full" href={project.data.url} target="_blank">View</Button>
+        <Button class="w-full" href={`/articles/${project.data.slug}`}>View</Button>
     </CardFooter>
   </Card>
