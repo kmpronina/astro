@@ -1,0 +1,20 @@
+---
+import { getCollection } from 'astro:content';
+import ProjectCard from '../cards/ProjectCard.astro';
+
+const articles = await getCollection('articles');
+---
+
+<h1 class="text-2xl font-bold py-2">My Articles</h1>
+
+<ul class="grid grid-col-1 md:grid-cols-3 gap-2">
+  {articles.map((article:any) => (
+    <ProjectCard project={article} >
+        <img
+			src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=400&fit=crop"
+			alt="Event cover"
+			class="aspect-video w-full object-cover"
+		  />
+    </ProjectCard>
+  ))}
+</ul>

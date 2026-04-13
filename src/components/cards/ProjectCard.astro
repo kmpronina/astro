@@ -1,0 +1,38 @@
+---
+import { Button } from "@/components/starwind/button";
+import {
+  Card,
+  CardAction,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/starwind/card";
+import { Badge } from "@/components/starwind/badge";
+
+const {project} = Astro.props
+---
+
+<Card class="relative mx-auto w-full max-w-sm">
+    <slot />
+
+    <CardHeader>
+        <CardAction>
+            {project.data.apps.map((app: any) =>
+                <Badge size="sm" variant="info">{app}</Badge>
+                )
+            }
+        </CardAction> 
+
+        <CardTitle>{project.data.title}</CardTitle>
+
+        <CardDescription>
+            {project.data.description}
+            <p>{project.data.published}</p>
+        </CardDescription>
+    </CardHeader>
+
+    <CardFooter>
+        <Button class="w-full" href={project.data.url} target="_blank">View</Button>
+    </CardFooter>
+  </Card>
